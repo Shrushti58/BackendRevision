@@ -6,6 +6,11 @@ configDotenv();
 connectDB();
 
 const app=express();
+app.use(express.json());
+
+import productRoutes from './routes/productRoutes.js'
+
+app.use('/api/products',productRoutes);
 
 app.get('/',(req,res)=>{
     res.send("Server Working");
